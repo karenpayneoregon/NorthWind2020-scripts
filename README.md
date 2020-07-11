@@ -15,4 +15,25 @@ Use the [following link](https://gist.github.com/karenpayneoregon/9bdf1a7d5310ac
 - [Order by order identifier](https://gist.github.com/karenpayneoregon/bc8329737eee80dfd2f9df0f9d3dbc63)
 - [Order details by order identifier](https://gist.github.com/karenpayneoregon/2711f4edeaa9f374f6cafef479d265fc)
  
-
+```sql
+SELECT Cust.CustomerIdentifier, 
+       Cust.CompanyName, 
+       Cust.ContactId, 
+       CT.ContactTitle, 
+       C.FirstName, 
+       C.LastName, 
+       Cust.Street, 
+       Cust.City, 
+       Cust.Region, 
+       Cust.PostalCode, 
+       Countries.[Name] AS CountryName, 
+       Cust.CountryIdentifier, 
+       Cust.Phone, 
+       Cust.Fax, 
+       Cust.ContactTypeIdentifier, 
+       Cust.ModifiedDate
+FROM Customers AS Cust
+     INNER JOIN Contacts AS C ON Cust.ContactId = C.ContactId
+     INNER JOIN ContactType AS CT ON Cust.ContactTypeIdentifier = CT.ContactTypeIdentifier
+     INNER JOIN Countries ON Cust.CountryIdentifier = Countries.CountryIdentifier;
+```
