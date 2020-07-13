@@ -37,3 +37,7 @@ FROM Customers AS Cust
      INNER JOIN ContactType AS CT ON Cust.ContactTypeIdentifier = CT.ContactTypeIdentifier
      INNER JOIN Countries ON Cust.CountryIdentifier = Countries.CountryIdentifier;
 ```
+# Advance evolving version
+The following repository is a work in progress using Microsoft Entity Framework Core 3x
+
+[Microsoft NorthWind database 2020 Part 1](https://github.com/karenpayneoregon/NorthWind-2020)
